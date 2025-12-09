@@ -1,13 +1,20 @@
-import vimto from '../../assets/Vimto.jpeg'
-import branston from '../../assets/branston.jpeg'
-import butter from '../../assets/lakeland butter.jpeg'
+import vimto from '../../assets/Vimto.png'
+import branston from '../../assets/branston.avif'
+import butter from '../../assets/lakeland butter.webp'
 import maltesers from '../../assets/Maltesers Milk Chocolate.jpeg'
-import cremeEgg from '../../assets/Cadbury Creme Egg Chocolate Easter Egg 195g.jpeg'
-import selfRaisingFlour from '../../assets/Jacks self raising flour 1kg.jpeg'
-import plainFlour from '../../assets/Jacks flour plain 1kg.jpeg'
-import sugar from '../../assets/Sugar.jpeg'
+import cremeEgg from '../../assets/Cadbury Creme Egg Chocolate Easter Egg 195g.jpg'
+import selfRaisingFlour from '../../assets/Jacks self raising flour 1kg.webp'
+import plainFlour from '../../assets/Jacks flour plain 1kg.webp'
+import sugar from '../../assets/Sugar.avif'
 import whiskas from '../../assets/Whiskas adult wet cat food chicken in jelly 400g.jpeg'
-import strawberryCones from '../../assets/Strawberry cones x4.jpeg'
+import strawberryCones from '../../assets/Strawberry cones x4.png'
+// New Sweet Products
+import colaAndPineappleCubes from '../../assets/Selection of sweets comming soon stockleys cola cubes, pinapple cubes £1.49 per 100g  .jpeg'
+import rhubarbAndCustard from '../../assets/Rhubarb and custard .jpeg'
+import custardLollies from '../../assets/custard lollies 0.30 each.jpeg'
+import toffeeCrumble from '../../assets/Original Toffe crumble 1.49 100g.jpg'
+import chocolateLick from '../../assets/Chocolate lick original.jpg'
+import aniseedBalls from '../../assets/Aniseed balls.webp'
 
 export const products = [
   {
@@ -89,5 +96,61 @@ export const products = [
     image: strawberryCones,
     category: 'Frozen',
     rating: 4.6
+  },
+  {
+    id: 11,
+    name: 'Stockleys Cola & Pineapple Cubes',
+    price: 1.49,
+    image: colaAndPineappleCubes,
+    category: 'Sweets',
+    rating: 4.7,
+    unit: 'per 100g',
+    badge: 'Coming Soon',
+    whatsapp: true
+  },
+  {
+    id: 12,
+    name: 'Rhubarb and Custard',
+    price: 1.49,
+    image: rhubarbAndCustard,
+    category: 'Sweets',
+    rating: 4.6,
+    unit: 'per 100g'
+  },
+  {
+    id: 13,
+    name: 'Rhubarb and Custard Lollies',
+    price: 0.30,
+    image: custardLollies,
+    category: 'Sweets',
+    rating: 4.5,
+    unit: 'each'
+  },
+  {
+    id: 14,
+    name: 'Original Toffee Crumble',
+    price: 1.49,
+    image: toffeeCrumble,
+    category: 'Sweets',
+    rating: 4.8,
+    unit: 'per 100g'
+  },
+  {
+    id: 15,
+    name: 'Chocolate Lick Original',
+    price: 1.49,
+    image: chocolateLick,
+    category: 'Sweets',
+    rating: 4.7,
+    unit: 'per 100g'
+  },
+  {
+    id: 16,
+    name: 'Aniseed Balls',
+    price: 1.49,
+    image: aniseedBalls,
+    category: 'Sweets',
+    rating: 4.6,
+    unit: 'per 100g'
   }
 ]

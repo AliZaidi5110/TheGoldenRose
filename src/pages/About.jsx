@@ -1,5 +1,6 @@
 import restaurant1 from '../../assets/restaurant1.png'
 import restaurant2 from '../../assets/restaurant2.png'
+import restaurant3 from '../../assets/restaurant3.jpeg'
 import logo from '../../assets/Logo.png'
 
 const About = () => {
@@ -13,6 +14,7 @@ const About = () => {
                         alt="The Golden Rose"
                         className="w-full h-full object-cover"
                     />
+
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
 
@@ -380,6 +382,57 @@ const About = () => {
                         <p className="text-xl md:text-2xl text-gray-200">
                             Where every customer is treated like family
                         </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Store Image Gallery */}
+            <div className="py-16 bg-gradient-to-b from-gray-50 to-white">
+                <div className="max-w-[1200px] mx-auto px-6">
+                    <div className="text-center mb-10">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-2">Visit Our Store</h2>
+                        <p className="text-gray-600 text-sm">Experience the warmth of The Golden Rose</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <div className="relative h-72 rounded-xl overflow-hidden shadow-md group">
+                            <img 
+                                src={restaurant1} 
+                                alt="The Golden Rose Store" 
+                                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                                style={{ objectPosition: 'center 40%' }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="absolute bottom-4 left-4 text-white">
+                                    <p className="font-semibold text-sm">Store Front</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="relative h-72 rounded-xl overflow-hidden shadow-md group">
+                            <img 
+                                src={restaurant2} 
+                                alt="Inside The Golden Rose" 
+                                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                                style={{ objectPosition: 'center 40%' }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="absolute bottom-4 left-4 text-white">
+                                    <p className="font-semibold text-sm">Inside View</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="relative h-72 rounded-xl overflow-hidden shadow-md group">
+                            <img 
+                                src={restaurant3} 
+                                alt="The Golden Rose Products" 
+                                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                                style={{ objectPosition: 'center 50%' }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="absolute bottom-4 left-4 text-white">
+                                    <p className="font-semibold text-sm">Our Products</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

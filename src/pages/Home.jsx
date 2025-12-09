@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import logo from '../../assets/Logo.png'
-import vimto from '../../assets/Vimto.jpeg'
+import vimto from '../../assets/Vimto.png'
 import maltesers from '../../assets/Maltesers Milk Chocolate.jpeg'
-import cremeEgg from '../../assets/Cadbury Creme Egg Chocolate Easter Egg 195g.jpeg'
-import strawberryCones from '../../assets/Strawberry cones x4.jpeg'
+import cremeEgg from '../../assets/Cadbury Creme Egg Chocolate Easter Egg 195g.jpg'
+import strawberryCones from '../../assets/Strawberry cones x4.png'
 
 const Home = () => {
   const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 45, seconds: 30 })
@@ -38,9 +38,9 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-orange-600 via-red-600 to-red-700 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-30"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnpNNiAzNGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
+      <section className="relative bg-[#301934] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#301934] via-[#4a2e58] to-[#301934]"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnpNNiAzNGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-10"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -65,7 +65,7 @@ const Home = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
-                  to="/products"
+                  to="/menu"
                   className="inline-flex items-center justify-center bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -287,46 +287,26 @@ const Home = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProducts.map((product) => (
-              <div key={product.id} className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="relative aspect-square overflow-hidden bg-gray-100">
-                  <span className="absolute top-3 left-3 bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-10 shadow-lg">
-                    {product.badge}
-                  </span>
+              <Link key={product.id} to="/menu" className="group cursor-pointer transition-opacity duration-200 hover:opacity-75">
+                <div className="relative w-full max-w-[200px] mx-auto aspect-square">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                    <span className="ml-2 text-sm text-gray-600">{product.rating}</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 min-h-[3.5rem]">
-                    {product.name}
-                  </h3>
-                  <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-orange-600">
-                      £{product.price.toFixed(2)}
+                  {product.badge && (
+                    <span className="absolute top-2 right-2 bg-gradient-to-r from-gold-500 to-gold-600 text-white px-2 py-1 rounded-full text-xs font-bold shadow-md">
+                      {product.badge}
                     </span>
-                    <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-md">
-                      Add
-                    </button>
-                  </div>
+                  )}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
           <div className="text-center mt-10">
             <Link
-              to="/products"
+              to="/menu"
               className="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               View All Products
@@ -386,8 +366,8 @@ const Home = () => {
       </section>
 
       {/* Membership Section */}
-      <section className="py-16 bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+      <section className="py-16 bg-gradient-to-br from-purple-700 via-purple-800 to-indigo-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-30"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMy4zMSAwIDYgMi42OSA2IDZzLTIuNjkgNi02IDYtNi0yLjY5LTYtNiAyLjY5LTYgNi02ek02IDM0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -407,7 +387,7 @@ const Home = () => {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 border-2 border-white/30 shadow-2xl">
+            <div className="bg-white/15 backdrop-blur-md rounded-3xl p-8 md:p-12 border-2 border-white/40 shadow-2xl">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
@@ -418,50 +398,50 @@ const Home = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">10% Discount</h3>
-                    <p className="text-white/90">On all products including price marked items</p>
+                    <h3 className="text-xl font-bold mb-2 text-white">10% Discount</h3>
+                    <p className="text-gray-100">On all products including price marked items</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="bg-yellow-400 rounded-full p-3">
+                    <div className="bg-yellow-400 rounded-full p-3 shadow-lg">
                       <svg className="w-6 h-6 text-purple-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Save More</h3>
-                    <p className="text-white/90">Membership pays for itself with regular shopping</p>
+                    <h3 className="text-xl font-bold mb-2 text-white">Save More</h3>
+                    <p className="text-gray-100">Membership pays for itself with regular shopping</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="bg-yellow-400 rounded-full p-3">
+                    <div className="bg-yellow-400 rounded-full p-3 shadow-lg">
                       <svg className="w-6 h-6 text-purple-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Instant Access</h3>
-                    <p className="text-white/90">Start saving immediately after joining</p>
+                    <h3 className="text-xl font-bold mb-2 text-white">Instant Access</h3>
+                    <p className="text-gray-100">Start saving immediately after joining</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="bg-yellow-400 rounded-full p-3">
+                    <div className="bg-yellow-400 rounded-full p-3 shadow-lg">
                       <svg className="w-6 h-6 text-purple-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">No Commitment</h3>
-                    <p className="text-white/90">Cancel anytime, no questions asked</p>
+                    <h3 className="text-xl font-bold mb-2 text-white">No Commitment</h3>
+                    <p className="text-gray-100">Cancel anytime, no questions asked</p>
                   </div>
                 </div>
               </div>
@@ -469,14 +449,14 @@ const Home = () => {
               <div className="text-center">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center bg-yellow-400 hover:bg-yellow-500 text-purple-900 font-bold px-10 py-5 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                  className="inline-flex items-center justify-center bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-10 py-5 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl"
                 >
                   <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                   </svg>
                   Join Now for £2.99/month
                 </Link>
-                <p className="text-sm text-white/80 mt-4">
+                <p className="text-sm text-gray-100 mt-4 font-medium">
                   Start saving today • Cancel anytime • No hidden fees
                 </p>
               </div>
@@ -512,7 +492,7 @@ const Home = () => {
             </div>
 
             <Link
-              to="/products"
+              to="/menu"
               className="inline-flex items-center bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               Order Now & Save
@@ -631,7 +611,7 @@ const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/products"
+              to="/menu"
               className="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Browse Products

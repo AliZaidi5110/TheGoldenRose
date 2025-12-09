@@ -1,20 +1,35 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import logo from '../../assets/Logo.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [cartCount, setCartCount] = useState(0)
   const location = useLocation()
 
   const isActive = (path) => location.pathname === path
+
+  useEffect(() => {
+    // Update cart count on mount and when cart changes
+    const updateCartCount = () => {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]')
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0)
+      setCartCount(count)
+    }
+
+    updateCartCount()
+    window.addEventListener('cartUpdated', updateCartCount)
+    
+    return () => window.removeEventListener('cartUpdated', updateCartCount)
+  }, [])
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} alt="The Golden Rose" className="h-10 w-10 object-contain" />
-            <span className="text-xl font-bold text-forest-800">The Golden Rose</span>
+            <img src={logo} alt="The Golden Rose" className="h-12 w-12 rounded-full object-cover border-2 border-purple-200 shadow-md" />
+            <span className="text-xl font-bold text-gray-800">The Golden Rose</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -22,15 +37,15 @@ const Navbar = () => {
             <Link
               to="/"
               className={`${
-                isActive('/') ? 'text-orange-600 border-b-2 border-orange-600' : 'text-gray-700 hover:text-orange-600'
+                isActive('/') ? 'text-[#301934] border-b-2 border-[#301934]' : 'text-gray-700 hover:text-[#301934]'
               } px-3 py-2 text-sm font-medium transition-colors`}
             >
               Home
             </Link>
             <Link
-              to="/products"
+              to="/menu"
               className={`${
-                isActive('/products') ? 'text-orange-600 border-b-2 border-orange-600' : 'text-gray-700 hover:text-orange-600'
+                isActive('/menu') ? 'text-[#301934] border-b-2 border-[#301934]' : 'text-gray-700 hover:text-[#301934]'
               } px-3 py-2 text-sm font-medium transition-colors`}
             >
               Menu
@@ -38,7 +53,7 @@ const Navbar = () => {
             <Link
               to="/about"
               className={`${
-                isActive('/about') ? 'text-orange-600 border-b-2 border-orange-600' : 'text-gray-700 hover:text-orange-600'
+                isActive('/about') ? 'text-[#301934] border-b-2 border-[#301934]' : 'text-gray-700 hover:text-[#301934]'
               } px-3 py-2 text-sm font-medium transition-colors`}
             >
               About
@@ -46,14 +61,27 @@ const Navbar = () => {
             <Link
               to="/contact"
               className={`${
-                isActive('/contact') ? 'text-orange-600 border-b-2 border-orange-600' : 'text-gray-700 hover:text-orange-600'
+                isActive('/contact') ? 'text-[#301934] border-b-2 border-[#301934]' : 'text-gray-700 hover:text-[#301934]'
               } px-3 py-2 text-sm font-medium transition-colors`}
             >
               Contact
             </Link>
             <Link
-              to="/products"
-              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-6 py-2 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md"
+              to="/checkout"
+              className="relative p-2 text-gray-700 hover:text-[#301934] transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+            <Link
+              to="/menu"
+              className="bg-gradient-to-r bg-[#301934] hover:bg-[#4a2e58] text-white font-bold px-6 py-2 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md"
             >
               Order Now
             </Link>
@@ -62,14 +90,27 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2">
             <Link
-              to="/products"
-              className="md:hidden bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold px-4 py-2 rounded-full text-sm"
+              to="/checkout"
+              className="md:hidden relative p-2 text-gray-700"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+            <Link
+              to="/menu"
+              className="md:hidden bg-gradient-to-r bg-[#301934] text-white font-bold px-4 py-2 rounded-full text-sm"
             >
               Order
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100"
+              className="md:hidden p-2 rounded-md text-gray-700 hover:text-[#301934] hover:bg-gray-100"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
@@ -91,16 +132,16 @@ const Navbar = () => {
               to="/"
               onClick={() => setIsOpen(false)}
               className={`${
-                isActive('/') ? 'bg-orange-50 text-orange-600' : 'text-gray-700 hover:bg-gray-100'
+                isActive('/') ? 'bg-purple-50 text-[#301934]' : 'text-gray-700 hover:bg-gray-100'
               } block px-3 py-2 rounded-md text-base font-medium`}
             >
               Home
             </Link>
             <Link
-              to="/products"
+              to="/menu"
               onClick={() => setIsOpen(false)}
               className={`${
-                isActive('/products') ? 'bg-orange-50 text-orange-600' : 'text-gray-700 hover:bg-gray-100'
+                isActive('/menu') ? 'bg-purple-50 text-[#301934]' : 'text-gray-700 hover:bg-gray-100'
               } block px-3 py-2 rounded-md text-base font-medium`}
             >
               Menu
@@ -109,7 +150,7 @@ const Navbar = () => {
               to="/about"
               onClick={() => setIsOpen(false)}
               className={`${
-                isActive('/about') ? 'bg-orange-50 text-orange-600' : 'text-gray-700 hover:bg-gray-100'
+                isActive('/about') ? 'bg-purple-50 text-[#301934]' : 'text-gray-700 hover:bg-gray-100'
               } block px-3 py-2 rounded-md text-base font-medium`}
             >
               About
@@ -118,15 +159,15 @@ const Navbar = () => {
               to="/contact"
               onClick={() => setIsOpen(false)}
               className={`${
-                isActive('/contact') ? 'bg-orange-50 text-orange-600' : 'text-gray-700 hover:bg-gray-100'
+                isActive('/contact') ? 'bg-purple-50 text-[#301934]' : 'text-gray-700 hover:bg-gray-100'
               } block px-3 py-2 rounded-md text-base font-medium`}
             >
               Contact
             </Link>
             <Link
-              to="/products"
+              to="/menu"
               onClick={() => setIsOpen(false)}
-              className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold px-4 py-2 rounded-full text-base mx-3 text-center"
+              className="bg-gradient-to-r bg-[#301934] text-white font-bold px-4 py-2 rounded-full text-base mx-3 text-center block"
             >
               Order Now
             </Link>
