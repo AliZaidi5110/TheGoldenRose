@@ -52,7 +52,7 @@ const Menu = () => {
 
       {/* Products Grid */}
       <div className="max-w-[1200px] mx-auto px-5 py-8">
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {filteredItems.map((item) => (
             <div
               key={item.id}
