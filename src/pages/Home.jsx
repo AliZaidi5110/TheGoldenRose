@@ -131,7 +131,7 @@ const Home = () => {
               </div>
             </div>
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              See Our Store <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">In Action</span>
+              <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Experience Our Store</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Take a virtual walk through The Golden Rose and discover the quality products and warm atmosphere that make us special
@@ -153,7 +153,7 @@ const Home = () => {
                   preload="metadata"
                   playsInline
                 >
-                  <source src="/assets/WhatsApp Video 2025-11-20 at 2.15.47 PM.mp4" type="video/mp4" />
+                  <source src="/assets/openart-video_b723f574_1765341886773.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 

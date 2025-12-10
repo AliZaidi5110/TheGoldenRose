@@ -45,7 +45,7 @@ const Checkout = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-[#00335b] mb-8">Checkout</h1>
+        <h1 className="text-4xl font-bold text-[#301934] mb-8">Checkout</h1>
 
         {cart.length === 0 ? (
           <div className="bg-white rounded-2xl p-12 text-center">
@@ -55,7 +55,7 @@ const Checkout = () => {
             <h2 className="text-2xl font-bold text-gray-700 mb-4">Your cart is empty</h2>
             <button
               onClick={() => navigate('/menu')}
-              className="bg-[#00335b] text-white font-bold py-3 px-8 rounded-full hover:bg-[#004a7c] transition-colors"
+              className="bg-[#301934] text-white font-bold py-3 px-8 rounded-full hover:bg-purple-800 transition-colors"
             >
               Continue Shopping
             </button>
@@ -65,7 +65,7 @@ const Checkout = () => {
             {/* Cart Items */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-[#00335b] mb-6">Your Items</h2>
+                <h2 className="text-2xl font-bold text-[#301934] mb-6">Your Items</h2>
                 
                 {cart.map((item) => (
                   <div key={item.id} className="flex gap-4 py-4 border-b border-gray-200 last:border-0">
@@ -75,9 +75,9 @@ const Checkout = () => {
                       className="w-24 h-24 object-cover rounded-lg"
                     />
                     <div className="flex-1">
-                      <h3 className="font-bold text-[#00335b] mb-1">{item.name}</h3>
+                      <h3 className="font-bold text-[#301934] mb-1">{item.name}</h3>
                       <p className="text-sm text-gray-600 mb-2">{item.size}</p>
-                      <p className="text-lg font-bold text-[#00335b]">£{item.price.toFixed(2)}</p>
+                      <p className="text-lg font-bold text-[#301934]">£{item.price.toFixed(2)}</p>
                     </div>
                     <div className="flex flex-col items-end justify-between">
                       <button
@@ -112,7 +112,7 @@ const Checkout = () => {
             {/* Order Summary */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-2xl p-6 shadow-sm sticky top-24">
-                <h2 className="text-2xl font-bold text-[#00335b] mb-6">Order Summary</h2>
+                <h2 className="text-2xl font-bold text-[#301934] mb-6">Order Summary</h2>
                 
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between text-gray-700">
@@ -130,7 +130,7 @@ const Checkout = () => {
                       Add £{(5 - subtotal).toFixed(2)} more for free delivery
                     </p>
                   )}
-                  <div className="border-t border-gray-200 pt-3 flex justify-between text-xl font-bold text-[#00335b]">
+                  <div className="border-t border-gray-200 pt-3 flex justify-between text-xl font-bold text-[#301934]">
                     <span>Total</span>
                     <span>£{total.toFixed(2)}</span>
                   </div>
@@ -138,14 +138,14 @@ const Checkout = () => {
 
                 <button
                   onClick={handleCheckout}
-                  className="w-full bg-[#00335b] text-white font-bold py-4 rounded-full hover:bg-[#004a7c] transition-colors shadow-lg mb-3"
+                  className="w-full bg-[#301934] text-white font-bold py-4 rounded-full hover:bg-purple-800 transition-colors shadow-lg mb-3"
                 >
                   Place Order
                 </button>
 
                 <button
                   onClick={() => navigate('/menu')}
-                  className="w-full bg-white border-2 border-[#00335b] text-[#00335b] font-bold py-4 rounded-full hover:bg-gray-50 transition-colors"
+                  className="w-full bg-white border-2 border-[#301934] text-[#301934] font-bold py-4 rounded-full hover:bg-purple-50 transition-colors"
                 >
                   Continue Shopping
                 </button>
