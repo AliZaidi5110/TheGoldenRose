@@ -296,7 +296,7 @@ const About = () => {
                                         preload="metadata"
                                         playsInline
                                     >
-                                        <source src="/assets/openart-video_b723f574_1765341886773.mp4" type="video/mp4" />
+                                        <source src="/store-video.mp4" type="video/mp4" />
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
