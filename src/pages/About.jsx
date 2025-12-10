@@ -2,6 +2,7 @@ import restaurant1 from '../../assets/restaurant1.png'
 import restaurant2 from '../../assets/restaurant2.png'
 import restaurant3 from '../../assets/restaurant3.jpeg'
 import logo from '../../assets/Logo.png'
+import storeVideo from '../assets/store-video.mp4'
 
 const About = () => {
     return (
@@ -295,10 +296,29 @@ const About = () => {
                                         controls
                                         preload="metadata"
                                         playsInline
+                                        poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzM3NDE1MSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxvYWRpbmcgVmlkZW8uLi48L3RleHQ+PC9zdmc+"
+                                        onError={(e) => {
+                                            console.log('Video failed to load:', e);
+                                            e.target.style.display = 'none';
+                                            e.target.nextElementSibling.style.display = 'flex';
+                                        }}
                                     >
+                                        <source src={storeVideo} type="video/mp4" />
                                         <source src="/store-video.mp4" type="video/mp4" />
+                                        <source src="https://github.com/AliZaidi5110/TheGoldenRose/raw/main/public/store-video.mp4" type="video/mp4" />
                                         Your browser does not support the video tag.
                                     </video>
+                                    
+                                    {/* Fallback Image */}
+                                    <div className="hidden w-full h-full bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center">
+                                        <div className="text-center">
+                                            <svg className="w-16 h-16 mx-auto text-purple-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                            </svg>
+                                            <p className="text-purple-700 font-semibold">Store Tour Video</p>
+                                            <p className="text-purple-600 text-sm">Experience The Golden Rose</p>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 {/* Video Details */}

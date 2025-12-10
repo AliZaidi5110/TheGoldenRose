@@ -5,6 +5,7 @@ import vimto from '../../assets/Vimto.png'
 import maltesers from '../../assets/Maltesers Milk Chocolate.jpeg'
 import cremeEgg from '../../assets/Cadbury Creme Egg Chocolate Easter Egg 195g.jpg'
 import strawberryCones from '../../assets/Strawberry cones x4.png'
+import storeVideo from '../assets/store-video.mp4'
 
 const Home = () => {
   const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 45, seconds: 30 })
@@ -41,7 +42,7 @@ const Home = () => {
       <section className="relative bg-[#301934] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#301934] via-[#4a2e58] to-[#301934]"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnpNNiAzNGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-10"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
@@ -52,7 +53,7 @@ const Home = () => {
                 </span>
                 <span className="text-sm font-medium">Open Now • Delivery in 30 mins</span>
               </div>
-              
+
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 The Golden Rose
               </h1>
@@ -62,7 +63,7 @@ const Home = () => {
               <p className="text-lg md:text-xl mb-8 text-white/90">
                 Your local fresh & everyday essentials takeaway
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   to="/menu"
@@ -120,7 +121,7 @@ const Home = () => {
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-orange-50/30 to-white"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmOTczMTYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnpNNiAzNGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -143,7 +144,7 @@ const Home = () => {
             {/* Decorative Elements */}
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-orange-400 to-red-500 rounded-full blur-3xl opacity-20"></div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-pink-400 to-red-500 rounded-full blur-3xl opacity-20"></div>
-            
+
             {/* Main Video Card */}
             <div className="relative bg-white rounded-2xl shadow-2xl p-3 md:p-4">
               <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-900">
@@ -152,21 +153,40 @@ const Home = () => {
                   controls
                   preload="metadata"
                   playsInline
+                  poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzM3NDE1MSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxvYWRpbmcgVmlkZW8uLi48L3RleHQ+PC9zdmc+"
+                  onError={(e) => {
+                    console.log('Video failed to load:', e);
+                    e.target.style.display = 'none';
+                    e.target.nextElementSibling.style.display = 'flex';
+                  }}
                 >
-                  <source src="/assets/openart-video_b723f574_1765341886773.mp4" type="video/mp4" />
+                  <source src={storeVideo} type="video/mp4" />
+                  <source src="/store-video.mp4" type="video/mp4" />
+                  <source src="https://github.com/AliZaidi5110/TheGoldenRose/raw/main/public/store-video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 
+                {/* Fallback Image */}
+                <div className="hidden w-full h-full bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
+                  <div className="text-center">
+                    <svg className="w-16 h-16 mx-auto text-orange-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    <p className="text-orange-700 font-semibold">Store Tour Video</p>
+                    <p className="text-orange-600 text-sm">Experience The Golden Rose</p>
+                  </div>
+                </div>
+
                 {/* Play Button Overlay (shows before playing) */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl opacity-0 hover:opacity-100 transition-opacity">
                     <svg className="w-10 h-10 text-orange-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
+                      <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
                 </div>
               </div>
-              
+
               {/* Video Info Bar */}
               <div className="mt-4 flex items-center justify-between px-2">
                 <div className="flex items-center gap-3">
@@ -228,7 +248,7 @@ const Home = () => {
               We're committed to providing the best quality products and service to our community in Newhaven
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center p-6 rounded-xl bg-gradient-to-br from-orange-50 to-red-50 hover:shadow-lg transition-shadow">
               <div className="bg-gradient-to-br from-orange-500 to-red-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
@@ -369,7 +389,7 @@ const Home = () => {
       <section className="py-16 bg-gradient-to-br from-purple-700 via-purple-800 to-indigo-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-30"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMy4zMSAwIDYgMi42OSA2IDZzLTIuNjkgNi02IDYtNi0yLjY5LTYtNiAyLjY5LTYgNi02ek02IDM0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center bg-yellow-400 text-gray-900 px-6 py-2 rounded-full text-sm font-bold mb-6 shadow-lg">
@@ -475,7 +495,7 @@ const Home = () => {
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Special Weekend Deal!</h2>
             <p className="text-xl mb-6 text-yellow-100">Get 15% off on orders above £20</p>
-            
+
             <div className="flex justify-center gap-4 mb-8">
               <div className="bg-white/20 backdrop-blur-sm px-6 py-4 rounded-lg">
                 <div className="text-3xl font-bold">{String(timeLeft.hours).padStart(2, '0')}</div>
@@ -543,9 +563,9 @@ const Home = () => {
           <div className="bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 rounded-3xl overflow-hidden shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               <div className="relative h-64 lg:h-auto">
-                <img 
-                  src={logo} 
-                  alt="The Golden Rose" 
+                <img
+                  src={logo}
+                  alt="The Golden Rose"
                   className="absolute inset-0 w-full h-full object-contain p-12 opacity-20"
                 />
                 <div className="relative h-full flex items-center justify-center p-8 lg:p-12">
@@ -566,8 +586,8 @@ const Home = () => {
                   A Mother's Dream Come True
                 </h2>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  The Golden Rose was created to honour our mother's dream of opening a café. 
-                  What was once just an idea is now a reality, serving the Newhaven community 
+                  The Golden Rose was created to honour our mother's dream of opening a café.
+                  What was once just an idea is now a reality, serving the Newhaven community
                   with love and tradition.
                 </p>
                 <div className="bg-white p-6 rounded-xl border-l-4 border-orange-500 mb-6 shadow-md">
@@ -582,7 +602,7 @@ const Home = () => {
                   </p>
                 </div>
                 <p className="text-gray-700 mb-6">
-                  Some recipes date back to 1952, the year she was born. We are proud to 
+                  Some recipes date back to 1952, the year she was born. We are proud to
                   continue her legacy with every product we serve.
                 </p>
                 <Link
